@@ -12,13 +12,13 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="preload" as="image" href="./images/FSAEproject-pic.jpg" fetchpriority="high">
 
     <!-- Critical CSS -->
     <style>
-      :root{--spacing-xs:.5rem;--spacing-sm:1rem;--spacing-md:2rem;--spacing-lg:3rem;--spacing-xl:4rem;--radius:1rem;--color-bg:#fff;--color-contrast:#f7f8fa;--color-primary:#000;--color-accent:#e01948;--color-text:#000;--font-base:1rem;--font-lg:1.25rem;--font-xl:1.5rem}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:system-ui,sans-serif;line-height:1.5;color:var(--color-text)}nav,nav .navbar{display:flex}nav{justify-content:space-around;align-items:center;height:17vh}.navbar{gap:2rem;list-style:none;font-size:1.5rem}.title{font-size:3rem;text-align:center;margin-bottom:var(--spacing-md)}.projects-container{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--spacing-lg)}.btn{font-weight:600;transition:all .3s ease;padding:1rem;width:10rem;border-radius:2rem;text-decoration:none!important;display:inline-block;text-align:center;cursor:pointer}
+      :root{--spacing-xs:.5rem;--spacing-sm:1rem;--spacing-md:2rem;--spacing-lg:3rem;--spacing-xl:4rem;--radius:1rem;--color-bg:#fff;--color-contrast:#f5f5f5;--color-primary:#111;--color-accent:#e01948;--color-text:#111;--color-text-muted:#666}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:'Inter',system-ui,-apple-system,sans-serif;line-height:1.6;color:var(--color-text);background:var(--color-bg);-webkit-font-smoothing:antialiased}nav,nav .navbar{display:flex}nav{justify-content:space-around;align-items:center;height:72px;background:rgba(255,255,255,0.9);backdrop-filter:blur(12px)}.navbar{gap:1.5rem;list-style:none;font-size:1.1rem}.title{font-family:'Playfair Display',serif;font-size:3rem;text-align:center;margin-bottom:var(--spacing-md);font-weight:700}.projects-container{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--spacing-lg)}.btn{font-weight:600;transition:all .3s ease;padding:1rem;width:10rem;border-radius:2rem;text-decoration:none!important;display:inline-block;text-align:center;cursor:pointer}
     </style>
 
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -26,7 +26,7 @@
 
     <!-- Your Styles -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/jpeg" href="./images/profile.jpg" />
+    <link rel="icon" type="image/png" href="./images/profile.png" />
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-E6CR9BS9JC"></script>
@@ -40,24 +40,10 @@
   <body>
     <!-- NAVIGATION -->
     <nav id="navbar">
-      <div style="display: flex; align-items: center; gap: 8px">
-        <div
-          style="
-            background: #111;
-            color: #fff;
-            font-weight: bold;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-          "
-        >
-          H
-        </div>
-        <span>Hung's Portfolio</span>
-      </div>
+      <a href="./index.html" class="nav-brand">
+        <div class="nav-logo">H</div>
+        <span class="nav-brand-text">Hung's Portfolio</span>
+      </a>
       <ul class="navbar">
         <li>
           <a class="btn btn-light" href="./#about">
@@ -252,51 +238,7 @@
           <footer class="project-card__footer">
             <a href="./CubeSat.html" class="btn"> View Project → </a>
           </footer>
-          <!-- </article>
-                  <article class="project-card color-container">
-          <div class="project-card__image">
-            <img
-              src="./images/AV_capstone_frontPic.JPG"
-              alt="Driver Rehabilitation Summer Research"
-              loading="lazy"
-              decoding="async"
-            />
-          </div> -->
-         <!-- <ul class="project-card__summary">
-           <header class="project-card__header">
-            <h3 class="project-card__title">
-              Autonomous Vehicle Capstone
-            </h3>
-          </header>
-            <li>
-              <span class="label">TITLE & ROLE</span>
-              <span class="value">Volunteer basis</span>
-            </li>
-            <li>
-              <span class="label">PROBLEM</span>
-              <span class="value"
-                >Strip down the previous version of the car since it is no longer work and make a better one</span
-              >
-            </li>
-            <li>
-              <span class="label">CONTRIBUTION</span>
-              <span class="value"
-                >(early stage...)</span
-              >
-            </li>
-            <li>
-              <span class="label">RESULT</span>
-              <span class="value"
-                >(early stage...)</span
-              >
-            </li>
-          </ul>
-           <footer class="project-card__footer">
-            <a href="./AV_capstone.html" class="btn"> View Project → </a>
-          </footer> -->
           </article>
-
-        <!-- Add more <article class="project-card">…</article> here -->
       </div>
     </section>
     <section id="projects">
@@ -360,14 +302,6 @@
                 A collection of my works from my mechanical courses at LMU and a
                 bit of random pictures
               </span>
-            </li>
-            <li>
-              <span class="label">How</span>
-              <span class="value">A random walk around campus</span>
-            </li>
-            <li>
-              <span class="label">Why</span>
-              <span class="value">Why not?</span>
             </li>
           </ul>
           <footer class="project-card__footer">
@@ -473,16 +407,15 @@
 
       // Add animation classes and observe elements
       document.addEventListener('DOMContentLoaded', () => {
-        // Animate sections
-        document.querySelectorAll('section').forEach((section, index) => {
+        // Animate sections with fade-in
+        document.querySelectorAll('section').forEach((section) => {
           section.classList.add('fade-in');
           observer.observe(section);
         });
 
-        // Animate project cards
-        document.querySelectorAll('.project-card').forEach((card, index) => {
-          card.classList.add('slide-in-right');
-          card.style.transitionDelay = `${index * 0.2}s`;
+        // Animate project cards with fade-in
+        document.querySelectorAll('.project-card').forEach((card) => {
+          card.classList.add('fade-in');
           observer.observe(card);
         });
       });

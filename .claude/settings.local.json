@@ -5,7 +5,11 @@
       "Bash(python3:*)",
       "Bash(find:*)",
       "Bash(xargs ls:*)",
-      "Bash(sort:*)"
+      "Bash(sort:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(git checkout:*)",
+      "Bash(sips:*)"
     ],
     "deny": [],
     "ask": []

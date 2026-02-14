@@ -1,220 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ParkingPal Implementation - Smart Sensor System | Hung Nguyen Portfolio</title>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ParkingPal Implementation - Smart Sensor System | Hung Nguyen Portfolio</title>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
 
-        <!-- Preload critical resources -->
-        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap"></noscript>
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
 
-        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer"></noscript>
+    <link rel="preload" href="./images/ppProblem3.jpg" as="image" fetchpriority="high">
 
-        <link rel="preload" href="./images/ppProblem3.jpg" as="image" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" type="image/png" href="./images/profile.png" />
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="./css/style.css">
-        <link rel="icon" type="image/jpeg" href="./images/profile.jpg">
-
-        <!-- Critical CSS -->
-        <style>
-        :root{--spacing-xs:.5rem;--spacing-sm:1rem;--spacing-md:2rem;--spacing-lg:3rem;--spacing-xl:4rem;--radius:1rem;--color-bg:#fff;--color-contrast:#f7f8fa;--color-primary:#000;--color-accent:#e01948;--color-text:#000;--font-base:1rem;--font-lg:1.25rem;--font-xl:1.5rem}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:system-ui,sans-serif;line-height:1.5;color:var(--color-text)}nav,.navbar{display:flex}nav{justify-content:space-around;align-items:center;height:17vh}.navbar{gap:2rem;list-style:none;font-size:1.5rem}.title{font-size:2.5rem;margin-bottom:1rem}.btn{padding:.5rem 1rem;border-radius:.5rem;text-decoration:none;transition:all .3s ease}.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.fade-in.visible{opacity:1;transform:translateY(0)}.loading{opacity:.7;transition:opacity .3s ease}.loaded{opacity:1}
-        </style>
-    </head>
-
-<body>
+    <!-- Critical CSS -->
+    <style>
+      :root{--spacing-xs:.5rem;--spacing-sm:1rem;--spacing-md:2rem;--spacing-lg:3rem;--spacing-xl:4rem;--radius:1rem;--color-bg:#fff;--color-contrast:#f5f5f5;--color-primary:#111;--color-accent:#e01948;--color-text:#111;--color-text-muted:#666}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:system-ui,sans-serif;line-height:1.5;color:var(--color-text)}nav,.navbar{display:flex}nav{justify-content:space-around;align-items:center;height:72px;background:rgba(255,255,255,0.9);backdrop-filter:blur(12px)}.navbar{gap:1.5rem;list-style:none;font-size:1.1rem}.title{font-size:2.5rem;margin-bottom:1rem}.btn{padding:.5rem 1rem;border-radius:.5rem;text-decoration:none;transition:all .3s ease}.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}.fade-in.visible{opacity:1;transform:translateY(0)}.loading{opacity:.7;transition:opacity .3s ease}.loaded{opacity:1}
+    </style>
+  </head>
+  <body>
     <nav id="navbar">
-        <div style="display: flex; align-items: center; gap: 8px">
-            <div
-                style="
-              background: #111;
-              color: #fff;
-              font-weight: bold;
-              width: 24px;
-              height: 24px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 4px;
-            ">
-                H
-            </div>
-            <span>Hung's Portfolio</span>
-        </div>
-        <ul class="navbar">
-            <li>
-                <a class="btn btn-light" href="./#navbar">
-                    <i class="fas fa-user"></i>
-                    Main</a>
-            </li>
-            <li>
-                <a class="btn btn-light"
-                    href="./parkingpal1.html#pp1_problem">
-                    Problem
-                </a>
-            </li>
-            <li>
-                <a class="btn btn-light"
-                    href="./parkingpal1.html#pp1_contribution">Implementation</a>
-            </li>
-            <li>
-                <a class="btn btn-light"
-                    href="./parkingpal1.html#pp1_result">Result</a>
-            </li>
-            <li>
-                <a class="btn btn-light" href="./parkingpal1.html#pp1_reflection"> Kaizen and Hansei</a>
-            </li>
-            <li>
-                <a class="btn btn-light"
-                    href="./project.html">Projects</a>
-            </li>
-        </ul>
-
+      <a href="./index.html" class="nav-brand">
+        <div class="nav-logo">H</div>
+        <span class="nav-brand-text">Hung's Portfolio</span>
+      </a>
+      <ul class="navbar">
+        <li><a class="btn btn-light" href="./#navbar"><i class="fas fa-user"></i> Main</a></li>
+        <li><a class="btn btn-light" href="./parkingpal1.html#pp1_problem">Problem</a></li>
+        <li><a class="btn btn-light" href="./parkingpal1.html#pp1_contribution">Implementation</a></li>
+        <li><a class="btn btn-light" href="./parkingpal1.html#pp1_result">Result</a></li>
+        <li><a class="btn btn-light" href="./parkingpal1.html#pp1_reflection">Kaizen and Hansei</a></li>
+        <li><a class="btn btn-light" href="./project.html">Projects</a></li>
+      </ul>
     </nav>
+
     <!-- problem section -->
     <section id="pp1_problem">
-        <div class="section-text">
-            <h1 class="title"> The Problem</h1>
-            <p class="section-text-p1">The magnetometer already has its place on
-                the market for this type of IoT sensor (pics of a few of our
-                competitors)
-                And it seems like it is not yielding the expected results based
-                on the fact that there are many
-                competitors out there,
-                but their products were not really well-known. Hence, I needed
-                to come up with something different and
-                applicable. </p>
+      <div class="section-text">
+        <h1 class="title">The Problem</h1>
+        <p class="section-text-p1">The magnetometer already has its place on
+          the market for this type of IoT sensor (pics of a few of our
+          competitors)
+          And it seems like it is not yielding the expected results based
+          on the fact that there are many
+          competitors out there,
+          but their products were not really well-known. Hence, I needed
+          to come up with something different and
+          applicable.</p>
+      </div>
+      <article class="article-container">
+        <div class="image-grid">
+          <img src="./images/ppProblem3.jpg" alt="FEA stress result" class="section-pic-container" />
+          <img src="./images/ppProblem4.png" alt="Bracket simulation" class="section-pic-container" />
         </div>
-        <article class="article-container">
-            <div class="image-grid">
-                <img src="./images/ppProblem3.jpg" alt="FEA stress result"
-                    class="section-pic-container">
-                <img src="./images/ppProblem4.png" alt="Bracket simulation"
-                    class="section-pic-container">
-            </div>
-        </article>
+      </article>
     </section>
+
     <!-- contribution section -->
     <section id="pp1_contribution">
-        <div class="section-text">
-            <h1 class="title"> Implementation</h1>
-            <p class="section-text-p1">After careful consideration, I had
-                decided to implement a power sensor targetting
-                2.4GHz frequency from the infotainment in modern cars as I do
-                not
-                see how this trend of having big screen
-                in cars die out. I also added a trained ESP32-CAM with computer
-                vision to verify whether the car is present visually or is it
-                just bad signal. </p>
-            <article class="article-container">
-                <div class="image-grid">
-                    <img src="./images/ppContribution3.JPG"
-                        alt="FEA stress result" class="section-pic-container">
-                    <img src="./images/ppContribution4.JPG"
-                        alt="Bracket simulation" class="section-pic-container">
-                    <img src="./images/ppContribution5.jpg"
-                        alt="Optimized geometry" class="section-pic-container">
-                    <img src="./images/ppContribution6.JPG"
-                        alt="Optimized geometry" class="section-pic-container">
-                </div>
-            </article>
-        </section>
+      <div class="section-text">
+        <h1 class="title">Implementation</h1>
+        <p class="section-text-p1">After careful consideration, I had
+          decided to implement a power sensor targetting
+          2.4GHz frequency from the infotainment in modern cars as I do
+          not see how this trend of having big screen
+          in cars die out. I also added a trained ESP32-CAM with computer
+          vision to verify whether the car is present visually or is it
+          just bad signal.</p>
+      </div>
+      <article class="article-container">
+        <div class="image-grid">
+          <img src="./images/ppContribution3.JPG" alt="FEA stress result" class="section-pic-container" />
+          <img src="./images/ppContribution4.JPG" alt="Bracket simulation" class="section-pic-container" />
+          <img src="./images/ppContribution5.jpg" alt="Optimized geometry" class="section-pic-container" />
+          <img src="./images/ppContribution6.JPG" alt="Optimized geometry" class="section-pic-container" />
+        </div>
+      </article>
+    </section>
 
-        <!-- Result section -->
-        <section id="pp1_result">
-            <div class="section-text">
-                <h1 class="title">The Result</h1>
-                <p class="section-text-p1 loading">Currently testing and
-                    gathering
-                    data</p>
-            </div>
+    <!-- Result section -->
+    <section id="pp1_result">
+      <div class="section-text">
+        <h1 class="title">The Result</h1>
+        <p class="section-text-p1 loading">Currently testing and gathering data</p>
+      </div>
+    </section>
 
-            <article class="article-container">
-            </article>
-        </section>
+    <section id="pp1_reflection">
+      <div class="section-text">
+        <h1 class="title">What I would do differently?</h1>
+        <p class="section-text-p1 loading">...</p>
+      </div>
+    </section>
 
-        <section id="pp1_reflection">
-            <div class="section-text">
-                <h1 class="title">What I would do differently?</h1>
-                <p class="section-text-p1 loading">...</p>
-            </div>
-            <div class="article-container">
-                <!-- <img src="./images/.jpg" alt="result picture" class="section-pic-container"> -->
-            </div>
-            <!-- Footer -->
-            <footer>
-                <nav id="navbar">
-                    <ul class="navbar">
-                        <li>
-                            <a class="btn btn-light"
-                                href="./#navbar">
-                                <i class="fas fa-user"></i>
-                                Main</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-light"
-                                href="./parkingpal.html#pp_problem">
-                                Problem
-                            </a>
-                        </li>
-                        <li>
-                            <a class="btn btn-light"
-                                href="./parkingpal1.html#pp1_contribution">
-                                Implementation</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-light"
-                                href="./parkingpal1.html#pp1_result">
-                                Result</a>
-                        </li>
-                        <li>
-                            <a class="btn btn-light"
-                                href="./project.html">Projects</a>
-                        </li>
-                    </ul>
-
-                </nav>
-                <p>Copyright &#169; 2025 Hung Nguyen Reserved.</p>
-            </footer>
-        </section>
+    <footer>
+      <nav>
+        <ul class="navbar">
+          <li><a class="btn btn-light" href="./#navbar"><i class="fas fa-user"></i> Main</a></li>
+          <li><a class="btn btn-light" href="./project.html">Projects</a></li>
+        </ul>
+      </nav>
+      <p>Copyright &#169; 2025 Hung Nguyen Reserved.</p>
+    </footer>
 
     <script>
-    // Image loading management
-    document.addEventListener('DOMContentLoaded', function() {
-        const images = document.querySelectorAll('img');
-
-        images.forEach(img => {
+      // Image loading management
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('img').forEach(img => {
+          if (!img.complete) {
             img.classList.add('loading');
             img.addEventListener('load', function() {
-                this.classList.remove('loading');
-                this.classList.add('loaded');
+              this.classList.remove('loading');
+              this.classList.add('loaded');
             });
+          } else {
+            img.classList.add('loaded');
+          }
         });
 
-        // Intersection Observer for animations
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
         }, observerOptions);
 
-        // Add fade-in animation to sections
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => {
-            section.classList.add('fade-in');
-            observer.observe(section);
+        document.querySelectorAll('section').forEach(section => {
+          section.classList.add('fade-in');
+          observer.observe(section);
         });
-    });
+      });
     </script>
-    </body>
+  </body>
+</html>

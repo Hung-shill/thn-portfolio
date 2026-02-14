@@ -40,13 +40,15 @@ nav,
 nav {
   justify-content: space-around;
   align-items: center;
-  height: 17vh;
+  height: 72px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
 }
 
 .navbar {
-  gap: 2rem;
+  gap: 1.5rem;
   list-style: none;
-  font: 1.5rem;
+  font: 1.1rem;
 }
 
 a:hover {
