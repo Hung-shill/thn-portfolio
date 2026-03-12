@@ -9,7 +9,10 @@
       "Bash(cat:*)",
       "Bash(ls:*)",
       "Bash(git checkout:*)",
-      "Bash(sips:*)"
+      "Bash(sips:*)",
+      "Bash(done)",
+      "Bash(for f in Parkingpal.jpg profile.png result.jpg FSAEproject-pic.jpg autonomous_Bot_front_pic.JPG ppContribution6.JPG ppContribution3.JPG ppContribution5.jpg ppContribution4.JPG fsaeContribution2.png)",
+      "Bash(do echo \"Resizing $f...\")"
     ],
     "deny": [],
     "ask": []
