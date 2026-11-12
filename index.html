@@ -121,31 +121,85 @@
         <h2 class="section-heading" id="projects-heading">Projects</h2>
 
         <article class="project-row">
+          <!-- No build photos yet: key numbers in a drawing-style panel instead -->
+          <dl class="spec-panel" aria-label="Capstone by the numbers">
+            <div class="spec-panel__cell">
+              <dt>Failure modes found</dt>
+              <dd>24</dd>
+            </div>
+            <div class="spec-panel__cell">
+              <dt>Concepts scored</dt>
+              <dd>27</dd>
+            </div>
+            <div class="spec-panel__cell">
+              <dt>BOM lines</dt>
+              <dd>48</dd>
+            </div>
+            <div class="spec-panel__cell">
+              <dt>Budget</dt>
+              <dd>$5,000</dd>
+            </div>
+          </dl>
+          <div class="project-row__body">
+            <h3 class="project-row__title">
+              Autonomous Mobility Assistive Robot
+            </h3>
+            <p class="project-row__role">Senior capstone, Feb 2026 to now</p>
+            <dl class="project-facts">
+              <dt>Problem</dt>
+              <dd>
+                Caregivers cannot watch every fall-risk resident around the
+                clock, especially at night.
+              </dd>
+              <dt>What I did</dt>
+              <dd>
+                Ran an FMEA (IEC 60812) on the power and electrical system,
+                built a 48-line BOM across 5 subsystems, and scored 27 concepts
+                in weighted decision matrices.
+              </dd>
+              <dt>Result</dt>
+              <dd>
+                Flagged 24 failure modes (14 for corrective action), cut power
+                cost about $883 to fit the budget, and picked a battery pack
+                with 20% run-time margin.
+              </dd>
+            </dl>
+            <a class="text-link" href="./capstone.html"
+              >Read the full write-up</a
+            >
+          </div>
+        </article>
+
+        <article class="project-row">
           <img
-            class="project-row__image project-row__image--diagram"
-            src="./images/fsaeContribution.jpg"
-            alt="CAD model of the FSAE suspension upright with labeled brake caliper, steering arm, and bearing mounts"
+            class="project-row__image"
+            src="./images/autonomous_Bot_front_pic.JPG"
+            alt="Autonomous 1/10 scale RC car"
             loading="lazy"
           />
           <div class="project-row__body">
-            <h3 class="project-row__title">Lion Motorsport FSAE</h3>
-            <p class="project-row__role">Former suspension team member</p>
+            <h3 class="project-row__title">Autonomous Pookie</h3>
+            <p class="project-row__role">Personal project</p>
             <dl class="project-facts">
-              <dt>Problem</dt>
-              <dd>Design suspension parts for LMU's first Formula SAE car.</dd>
+              <dt>Goal</dt>
+              <dd>Build a 1/10 scale self-driving RC car from scratch.</dd>
               <dt>What I did</dt>
               <dd>
-                Modeled 5+ suspension parts in SolidWorks, including the upright
-                and brake rotor, and checked them with FEA under braking,
-                steering, and bump loads.
+                Built a Raspberry Pi car with independent 4-wheel steering under
+                10 ms latency, and mapped rooms with 3D LiDAR using Open3D and
+                ICP.
               </dd>
-              <dt>Takeaway</dt>
+              <dt>Result</dt>
               <dd>
-                Good parts come from understanding the whole system and staying
-                in sync with teammates.
+                Trained a TensorFlow network on the localization data to predict
+                motor commands, reaching 92% path-following accuracy.
               </dd>
+              <dt>Why</dt>
+              <dd>I think Waymo is cool and I will die on this hill.</dd>
             </dl>
-            <a class="text-link" href="./FSAE.html">Read the full write-up</a>
+            <a class="text-link" href="./autonomousRC.html"
+              >Read the full write-up</a
+            >
           </div>
         </article>
 
@@ -180,6 +234,7 @@
               </dd>
             </dl>
             <div class="project-row__links">
+              <a class="text-link" href="./parkingpal2.html">Camera version</a>
               <a class="text-link" href="./parkingpal.html">First prototype</a>
               <a class="text-link" href="./parkingpal1.html"
                 >Second prototype</a
@@ -222,34 +277,30 @@
 
         <article class="project-row">
           <img
-            class="project-row__image"
-            src="./images/autonomous_Bot_front_pic.JPG"
-            alt="Autonomous 1/10 scale RC car"
+            class="project-row__image project-row__image--diagram"
+            src="./images/fsaeContribution.jpg"
+            alt="CAD model of the FSAE suspension upright with labeled brake caliper, steering arm, and bearing mounts"
             loading="lazy"
           />
           <div class="project-row__body">
-            <h3 class="project-row__title">Autonomous Pookie</h3>
-            <p class="project-row__role">Personal project</p>
+            <h3 class="project-row__title">Lion Motorsport FSAE</h3>
+            <p class="project-row__role">Former suspension team member</p>
             <dl class="project-facts">
-              <dt>Goal</dt>
-              <dd>Build a 1/10 scale self-driving RC car from scratch.</dd>
+              <dt>Problem</dt>
+              <dd>Design suspension parts for LMU's first Formula SAE car.</dd>
               <dt>What I did</dt>
               <dd>
-                Built a Raspberry Pi car with independent 4-wheel steering under
-                10 ms latency, and mapped rooms with 3D LiDAR using Open3D and
-                ICP.
+                Modeled 5+ suspension parts in SolidWorks, including the upright
+                and brake rotor, and checked them with FEA under braking,
+                steering, and bump loads.
               </dd>
-              <dt>Result</dt>
+              <dt>Takeaway</dt>
               <dd>
-                Trained a TensorFlow network on the localization data to predict
-                motor commands, reaching 92% path-following accuracy.
+                Good parts come from understanding the whole system and staying
+                in sync with teammates.
               </dd>
-              <dt>Why</dt>
-              <dd>I think Waymo is cool and I will die on this hill.</dd>
             </dl>
-            <a class="text-link" href="./autonomousRC.html"
-              >Read the full write-up</a
-            >
+            <a class="text-link" href="./FSAE.html">Read the full write-up</a>
           </div>
         </article>
 
@@ -299,6 +350,9 @@
                   shipping with DMAIC, and built staffing and KPI tools in
                   BigQuery, SQL, and Python.
                 </p>
+                <a class="text-link" href="./Walmart_internship.html"
+                  >Read more</a
+                >
               </div>
             </div>
           </li>
@@ -319,6 +373,7 @@
                   Kept 93% fleet uptime as the delivery fleet grew from 17 to 30
                   robots, and retrofitted 2D LiDAR at a 95% first-pass rate.
                 </p>
+                <a class="text-link" href="./kiwi-campus.html">Read more</a>
               </div>
             </div>
           </li>
