@@ -13,7 +13,8 @@
   --color-navy-dark: #142a45;
 
   /* Type */
-  --font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-family: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI",
+    sans-serif;
   --font-size-small: 0.875rem;
   --font-size-body: 1.0625rem;
   --font-size-large: 1.25rem;

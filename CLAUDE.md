@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a personal portfolio website for Hung Nguyen, a Mechanical Engineering student at Loyola Marymount University. The site is built as a static HTML/CSS/JavaScript website and deployed to GitHub Pages at https://hung-shill.github.io/Hung.github.io.
+This is a personal portfolio website for Hung Nguyen, a Mechanical Engineering student at Loyola Marymount University. The site is built as a static HTML/CSS/JavaScript website and deployed to GitHub Pages at https://hung-shill.github.io/thn-portfolio/.
 
 ## Architecture
 
@@ -15,9 +15,11 @@ This is a personal portfolio website for Hung Nguyen, a Mechanical Engineering s
 
 ## Key Files and Structure
 
-- `index.html` - Main portfolio page with sections: profile, about, skills, contact
-- `project.html` - Projects showcase page
-- `css/style.css` - Main stylesheet with CSS custom properties and responsive design
+- `index.html` - Main portfolio page with sections: hero, projects, experience, about and skills, contact
+- `project.html` - Redirects to `index.html#projects` (projects now live on the home page)
+- `css/home.css` - Main stylesheet: color, type, and layout tokens on `:root`, plus header, footer, and home sections
+- `css/project-page.css` - Styles for project detail pages, loaded after `home.css`
+- `images/galleryStyle/` - Course gallery photos listed in `manifest.json`, with small copies in `thumbs/`
 - `images/` - All portfolio images and icons
 - Additional project pages: `FSAE.html`, `parkingpal.html`, `autonomousRC.html`, etc.
 

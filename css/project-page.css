@@ -1,0 +1,149 @@
+/* =========================================================
+   Project detail pages. Loads after home.css and reuses its
+   tokens, header, footer, and buttons.
+   ========================================================= */
+
+.case-study {
+  padding-top: clamp(2rem, 5vw, 3.5rem);
+}
+
+.back-link {
+  display: inline-block;
+  font-size: var(--font-size-small);
+  margin-bottom: 1.5rem;
+}
+
+.case-study__title {
+  font-size: clamp(2.1rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.case-study__role {
+  margin-top: 0.5rem;
+  font-size: var(--font-size-large);
+  color: var(--color-muted);
+}
+
+/* Each old page section (Problem, Contribution, Result, Reflection) */
+.case-study section {
+  padding-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.case-study .section-text .title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.case-study .section-text-p1,
+.case-study .section-text p,
+.case-study .section-text li {
+  max-width: 68ch;
+}
+
+.case-study .section-text p + p {
+  margin-top: 0.9rem;
+}
+
+.case-study .section-text ul,
+.case-study .section-text ol {
+  margin-top: 0.75rem;
+  padding-left: 1.25rem;
+  max-width: 68ch;
+}
+
+/* Image grids: two columns, whole image visible (CAD and FEA shots need their labels) */
+.case-study .article-container {
+  margin-top: 1.5rem;
+}
+
+/* Two columns by default (so 2 and 4 photos fill evenly), three when a grid has exactly three */
+.case-study .image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.case-study .image-grid:has(> img:nth-child(3):last-child) {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 560px) {
+  .case-study .image-grid,
+  .case-study .image-grid:has(> img:nth-child(3):last-child) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.case-study .section-pic-container {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background: var(--color-wash);
+  border: 1px solid var(--color-line);
+  border-radius: var(--corner-radius);
+}
+
+/* A grid with a single image gets the full width */
+.case-study .image-grid:has(> img:only-child) {
+  grid-template-columns: 1fr;
+}
+
+.case-study .image-grid > img:only-child {
+  aspect-ratio: auto;
+  max-height: 32rem;
+}
+
+/* Placeholder note for pages without a write-up yet */
+.coming-soon {
+  margin-top: 2rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-wash);
+  border-radius: var(--corner-radius);
+  max-width: 60ch;
+}
+
+.page-end-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: clamp(3rem, 7vw, 5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-line);
+}
+
+/* ---------- Course design gallery ---------- */
+
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.photo-gallery__item {
+  display: block;
+  border-radius: var(--corner-radius);
+  overflow: hidden;
+  background: var(--color-wash);
+}
+
+.photo-gallery__item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.photo-gallery__item:hover img {
+  opacity: 0.88;
+}
+
+.photo-gallery__status {
+  color: var(--color-muted);
+}
