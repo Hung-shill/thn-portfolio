@@ -6,7 +6,7 @@
     <title>Autonomous Pookie | Hung Nguyen</title>
     <meta
       name="description"
-      content="A 1/10 scale self-driving RC car project: 2D LIDAR scans turned into a 3D point cloud."
+      content="A 1/10 scale self-driving car: 3D LiDAR mapping and a TensorFlow model reaching 92% path-following accuracy."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,8 +49,8 @@
           <p class="section-text-p1">
             I wanted to understand how self-driving cars like Waymo sense the
             world around them. The best way to learn was to build a small one
-            myself: a 1/10 scale RC car that can scan its surroundings and
-            eventually drive on its own.
+            myself: a 1/10 scale RC car that can scan its surroundings and drive
+            on its own.
           </p>
         </div>
       </section>
@@ -60,10 +60,11 @@
         <div class="section-text">
           <h2 class="title">What I did</h2>
           <p class="section-text-p1">
-            Designed and built the RC car from the ground up, covering both the
-            hardware and the software. Integrated a <b>2D LIDAR</b> with the
-            car's onboard computer to scan its surroundings and build a
-            <b>3D point cloud</b> of the space around it.
+            Designed and built the car from the ground up on a
+            <b>Raspberry Pi</b>, with independent 4-wheel steering driven
+            through GPIO and PWM in <b>Python</b> and <b>C++</b> at under 10 ms
+            latency. Mapped rooms with <b>3D LiDAR</b>, aligning scans with
+            <b>Open3D</b> and ICP (iterative closest point).
           </p>
         </div>
       </section>
@@ -73,9 +74,8 @@
         <div class="section-text">
           <h2 class="title">The Result</h2>
           <p class="section-text-p1">
-            The furthest I got was turning the 2D LIDAR scans into a 3D point
-            cloud of the space around the car. The project is paused at that
-            stage, before mapping and autonomous navigation.
+            Trained a <b>TensorFlow</b> network on the localization data to
+            predict motor commands, reaching 92% path-following accuracy.
           </p>
         </div>
       </section>
