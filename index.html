@@ -321,9 +321,29 @@
         <h2 class="section-heading" id="experience-heading">Experience</h2>
 
         <ol class="timeline">
+          <li class="timeline__entry timeline__entry--upcoming">
+            <p class="timeline__date">May 2027</p>
+            <div class="timeline__body">
+              <span class="timeline__node" aria-hidden="true"></span>
+              <span
+                class="timeline__logo timeline__logo--initials"
+                aria-hidden="true"
+                >LMU</span
+              >
+              <div>
+                <h3 class="timeline__role">
+                  B.S. Mechanical Engineering, Robotics
+                </h3>
+                <p class="timeline__org">
+                  Loyola Marymount University, expected graduation
+                </p>
+              </div>
+            </div>
+          </li>
           <li class="timeline__entry">
             <p class="timeline__date">Summer 2026</p>
             <div class="timeline__body">
+              <span class="timeline__node" aria-hidden="true"></span>
               <img
                 class="timeline__logo"
                 src="./images/Walmart_Logo.png"
@@ -346,6 +366,7 @@
           <li class="timeline__entry">
             <p class="timeline__date">Jan to May 2026</p>
             <div class="timeline__body">
+              <span class="timeline__node" aria-hidden="true"></span>
               <span
                 class="timeline__logo timeline__logo--initials"
                 aria-hidden="true"
@@ -367,6 +388,7 @@
           <li class="timeline__entry">
             <p class="timeline__date">May 2025 to now</p>
             <div class="timeline__body">
+              <span class="timeline__node" aria-hidden="true"></span>
               <span
                 class="timeline__logo timeline__logo--initials"
                 aria-hidden="true"
@@ -387,6 +409,7 @@
           <li class="timeline__entry">
             <p class="timeline__date">Mar 2025 to Feb 2026</p>
             <div class="timeline__body">
+              <span class="timeline__node" aria-hidden="true"></span>
               <span
                 class="timeline__logo timeline__logo--initials"
                 aria-hidden="true"
@@ -405,6 +428,7 @@
           <li class="timeline__entry">
             <p class="timeline__date">Summer 2023</p>
             <div class="timeline__body">
+              <span class="timeline__node" aria-hidden="true"></span>
               <span
                 class="timeline__logo timeline__logo--initials"
                 aria-hidden="true"
@@ -511,5 +535,97 @@
     <footer class="site-footer">
       <p>© 2026 Hung Nguyen</p>
     </footer>
+    <!-- Experience timeline: the trunk line grows as you scroll and each dot fills when reached.
+         Text is always visible; only the line and dots animate. -->
+    <script>
+      (function animateExperienceTimeline() {
+        const timelineList = document.querySelector(".timeline");
+        if (!timelineList) return;
+
+        const timelineEntries = [
+          ...timelineList.querySelectorAll(".timeline__entry"),
+        ];
+        const timelineNodes = timelineEntries.map((entry) =>
+          entry.querySelector(".timeline__node"),
+        );
+        const prefersReducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+
+        let nodeCentersFromTop = [];
+        let trackStart = 0;
+        let trackLength = 0;
+        let updateScheduled = false;
+
+        // Measure where each dot sits, so the line runs exactly from the first dot to the last
+        function measureTrack() {
+          const listTop = timelineList.getBoundingClientRect().top;
+          nodeCentersFromTop = timelineNodes.map((node) => {
+            const nodeBox = node.getBoundingClientRect();
+            return nodeBox.top + nodeBox.height / 2 - listTop;
+          });
+          trackStart = nodeCentersFromTop[0];
+          trackLength = Math.max(
+            nodeCentersFromTop[nodeCentersFromTop.length - 1] - trackStart,
+            1,
+          );
+          timelineList.style.setProperty(
+            "--timeline-track-start",
+            trackStart + "px",
+          );
+          timelineList.style.setProperty(
+            "--timeline-track-length",
+            trackLength + "px",
+          );
+        }
+
+        // The line is drawn down to a point 65% of the way down the screen
+        function drawToScrollPosition() {
+          updateScheduled = false;
+          const drawPointOnScreen = window.innerHeight * 0.65;
+          const trackTopOnScreen =
+            timelineList.getBoundingClientRect().top + trackStart;
+          // How far past the first dot the draw point is (negative = not there yet)
+          const distancePastFirstDot = drawPointOnScreen - trackTopOnScreen;
+          const drawnLength = Math.min(
+            Math.max(distancePastFirstDot, 0),
+            trackLength,
+          );
+          timelineList.style.setProperty(
+            "--timeline-drawn",
+            (drawnLength / trackLength).toFixed(4),
+          );
+          timelineEntries.forEach((entry, entryIndex) => {
+            const nodeDistanceAlongTrack =
+              nodeCentersFromTop[entryIndex] - trackStart;
+            entry.classList.toggle(
+              "is-reached",
+              nodeDistanceAlongTrack <= distancePastFirstDot,
+            );
+          });
+        }
+
+        function scheduleDraw() {
+          if (updateScheduled) return;
+          updateScheduled = true;
+          requestAnimationFrame(drawToScrollPosition);
+        }
+
+        measureTrack();
+        if (prefersReducedMotion) return; // keep the fully drawn version
+
+        timelineList.classList.add("timeline--animated");
+        drawToScrollPosition();
+        window.addEventListener("scroll", scheduleDraw, { passive: true });
+        window.addEventListener("resize", () => {
+          measureTrack();
+          scheduleDraw();
+        });
+        window.addEventListener("load", () => {
+          measureTrack();
+          scheduleDraw();
+        });
+      })();
+    </script>
   </body>
 </html>

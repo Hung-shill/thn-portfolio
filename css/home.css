@@ -9,6 +9,7 @@
   --color-ink: #16212c;
   --color-muted: #5b6672;
   --color-line: #dde2e7;
+  --color-track: #b8c2cc; /* timeline track and dots not reached yet */
   --color-navy: #1e3a5f;
   --color-navy-dark: #142a45;
 
@@ -355,9 +356,83 @@ main {
 
 /* ---------- Experience timeline ---------- */
 
+/* Growing trunk: a gray track, a navy fill that grows with scroll, and a dot per entry.
+   Without JavaScript (or with reduced motion) the fill and dots show fully drawn. */
 .timeline {
+  --timeline-line-x: 11.5rem; /* date column (10rem) + gap (1.5rem) */
+  --timeline-node-size: 12px;
+  --timeline-node-center: 1.1rem; /* lines the dot up with the date and role text */
   list-style: none;
   padding: 0;
+  position: relative;
+}
+
+.timeline::before,
+.timeline::after {
+  content: "";
+  position: absolute;
+  left: calc(var(--timeline-line-x) - 1px);
+  top: var(--timeline-track-start, var(--timeline-node-center));
+  height: var(--timeline-track-length, calc(100% - 2rem));
+  width: 2px;
+  z-index: 0;
+}
+
+.timeline::before {
+  background: var(--color-track);
+}
+
+.timeline::after {
+  background: var(--color-navy);
+  transform-origin: top;
+  transform: scaleY(var(--timeline-drawn, 1));
+}
+
+.timeline__node {
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--timeline-node-size) / -2);
+  top: calc(var(--timeline-node-center) - var(--timeline-node-size) / 2);
+  width: var(--timeline-node-size);
+  height: var(--timeline-node-size);
+  border-radius: 50%;
+  border: 2px solid var(--color-navy);
+  background: var(--color-navy);
+  box-shadow: 0 0 0 4px var(--color-paper);
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* Upcoming milestone: hollow dot */
+.timeline .timeline__entry--upcoming .timeline__node {
+  background: var(--color-paper);
+}
+
+.timeline__entry--upcoming .timeline__role {
+  color: var(--color-muted);
+}
+
+/* Animated state: dots wait in gray until the growing line reaches them */
+.timeline--animated .timeline__entry:not(.is-reached) .timeline__node {
+  background: var(--color-paper);
+  border-color: var(--color-track);
+}
+
+.timeline--animated .timeline__entry.is-reached .timeline__node {
+  animation: timeline-node-pop 0.35s ease-out;
+}
+
+@keyframes timeline-node-pop {
+  0% {
+    transform: scale(0.6);
+  }
+  60% {
+    transform: scale(1.35);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .timeline__entry {
@@ -380,11 +455,11 @@ main {
 }
 
 .timeline__body {
+  position: relative;
   display: flex;
   gap: 1rem;
   align-items: flex-start;
   padding-left: 1.5rem;
-  border-left: 2px solid var(--color-line);
 }
 
 .timeline__logo {
@@ -550,6 +625,13 @@ main {
     margin-bottom: 0.6rem;
   }
 
+  /* Phone: trunk runs down the left edge, date sits above each entry */
+  .timeline {
+    --timeline-line-x: 7px;
+    --timeline-node-center: 2.35rem; /* date line (1.4rem) + gap + half the role line */
+    padding-left: 7px;
+  }
+
   .timeline__entry {
     grid-template-columns: 1fr;
     gap: 0.25rem;
@@ -558,7 +640,12 @@ main {
   .timeline__date {
     text-align: left;
     padding-top: 0;
-    padding-left: calc(1.5rem + 2px);
+    padding-left: 1.5rem;
+  }
+
+  /* On phones the dot sits beside the role, below the date */
+  .timeline__node {
+    top: calc(0.88rem - var(--timeline-node-size) / 2);
   }
 
   .skills__groups {
