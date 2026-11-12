@@ -147,3 +147,23 @@
 .photo-gallery__status {
   color: var(--color-muted);
 }
+
+/* Videos sit in the same grid as photos */
+.case-study .section-video {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: var(--color-ink);
+  border-radius: var(--corner-radius);
+}
+
+/* Numbers panel on a detail page: shorter than the card version */
+.spec-panel--wide {
+  max-width: 34rem;
+  aspect-ratio: auto;
+  margin-top: 1.5rem;
+}
+
+.spec-panel--wide .spec-panel__cell {
+  gap: 1.5rem;
+}
