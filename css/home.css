@@ -247,32 +247,27 @@ main {
   margin-top: 2rem;
 }
 
-/* Title block, styled like the corner box on an engineering drawing */
+/* Title block, styled like the corner box on an engineering drawing.
+   2 x 2 grid: School | Major, Graduating | Rev. */
 .title-block {
   display: grid;
-  grid-template-columns: 1.4fr 1.6fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  max-width: 30rem;
   margin-top: 2.5rem;
   border: 1.5px solid var(--color-ink);
 }
 
 .title-block__cell {
   padding: 0.6rem 0.8rem;
+}
+
+/* Inner lines only: a vertical line after column 1, a horizontal line under row 1 */
+.title-block__cell:nth-child(odd) {
   border-right: 1px solid var(--color-ink);
+}
+
+.title-block__cell:nth-child(-n + 2) {
   border-bottom: 1px solid var(--color-ink);
-}
-
-.title-block__cell:nth-child(3) {
-  border-right: none;
-}
-
-.title-block__cell--wide {
-  grid-column: span 2;
-  border-bottom: none;
-}
-
-.title-block__cell--sheet {
-  border-right: none;
-  border-bottom: none;
 }
 
 .title-block dt {
@@ -539,30 +534,6 @@ main {
 
   .site-nav__links li:nth-child(3) {
     display: none;
-  }
-
-  .title-block {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  /* Mobile order: School | Major, Graduating | Rev, Looking for (full row) */
-  .title-block__cell:nth-child(2) {
-    border-right: none;
-  }
-
-  .title-block__cell:nth-child(3) {
-    border-right: 1px solid var(--color-ink);
-  }
-
-  .title-block__cell--sheet {
-    order: 4;
-    border-bottom: 1px solid var(--color-ink);
-  }
-
-  .title-block__cell--wide {
-    order: 5;
-    grid-column: span 2;
-    border-right: none;
   }
 
   .skill-level {
