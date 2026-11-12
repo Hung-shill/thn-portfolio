@@ -120,6 +120,56 @@
             />
           </div>
         </article>
+        <figure class="lidar-sim" id="lidar-simulation">
+          <div class="lidar-sim__stage">
+            <canvas
+              class="lidar-sim__canvas"
+              role="img"
+              aria-label="Simulation: a car drives through a model room while its spinning LiDAR maps walls and furniture as dots colored by distance"
+            ></canvas>
+            <span class="lidar-sim__badge">Simulation</span>
+          </div>
+          <div class="lidar-sim__toolbar">
+            <div class="lidar-sim__controls">
+              <button
+                type="button"
+                class="lidar-sim__button"
+                id="lidar-sim-toggle"
+                aria-pressed="false"
+              >
+                Play
+              </button>
+              <button
+                type="button"
+                class="lidar-sim__button"
+                id="lidar-sim-replay"
+              >
+                Replay
+              </button>
+            </div>
+            <dl class="lidar-sim__stats">
+              <div>
+                <dt>Points mapped</dt>
+                <dd id="lidar-sim-points">0</dd>
+              </div>
+              <div>
+                <dt>Distance driven</dt>
+                <dd id="lidar-sim-distance">0.0 m</dd>
+              </div>
+            </dl>
+            <div class="lidar-sim__legend" aria-hidden="true">
+              <span>Near</span>
+              <span class="lidar-sim__legend-ramp"></span>
+              <span>Far</span>
+            </div>
+          </div>
+          <figcaption class="lidar-sim__caption">
+            How the car builds a map as it drives: each LiDAR ray that hits a
+            wall or piece of furniture leaves a dot. This is a model room (8 m
+            by 5 m) for illustration, not recorded data. The real scans are
+            shown above.
+          </figcaption>
+        </figure>
       </section>
 
       <div class="page-end-links">
@@ -133,5 +183,6 @@
     <footer class="site-footer">
       <p>© 2026 Hung Nguyen</p>
     </footer>
+    <script src="./js/lidar-simulation.js" defer></script>
   </body>
 </html>

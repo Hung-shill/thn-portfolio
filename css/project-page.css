@@ -167,3 +167,109 @@
 .spec-panel--wide .spec-panel__cell {
   gap: 1.5rem;
 }
+
+/* ---------- LiDAR mapping simulation (Autonomous Pookie) ---------- */
+
+.lidar-sim {
+  margin: 2rem 0 0;
+}
+
+.lidar-sim__stage {
+  position: relative;
+}
+
+.lidar-sim__canvas {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 8 / 5;
+  background: #0d141c;
+  border-radius: var(--corner-radius);
+}
+
+.lidar-sim__badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #0d141c;
+  background: #e2e8f0;
+  border-radius: 999px;
+}
+
+.lidar-sim__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  margin-top: 0.9rem;
+}
+
+.lidar-sim__controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.lidar-sim__button {
+  font: inherit;
+  font-size: var(--font-size-small);
+  font-weight: 500;
+  min-width: 5.5rem;
+  padding: 0.4rem 0.9rem;
+  color: var(--color-navy);
+  background: transparent;
+  border: 1.5px solid var(--color-navy);
+  border-radius: var(--corner-radius);
+  cursor: pointer;
+}
+
+.lidar-sim__button:hover {
+  background: var(--color-wash);
+}
+
+.lidar-sim__stats {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.lidar-sim__stats dt {
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.lidar-sim__stats dd {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  min-width: 5ch;
+}
+
+.lidar-sim__legend {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-muted);
+}
+
+.lidar-sim__legend-ramp {
+  width: 7rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    #2f6bff,
+    #22d3ee,
+    #4ade80,
+    #facc15,
+    #f87171
+  );
+}
+
+.lidar-sim__caption {
+  margin-top: 0.75rem;
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+  max-width: 68ch;
+}
