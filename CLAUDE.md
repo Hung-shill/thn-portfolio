@@ -19,7 +19,7 @@ This is a personal portfolio website for Hung Nguyen, a Mechanical Engineering s
 - `project.html` - Redirects to `index.html#projects` (projects now live on the home page)
 - `css/home.css` - Main stylesheet: color, type, and layout tokens on `:root`, plus header, footer, and home sections
 - `css/project-page.css` - Styles for project detail pages, loaded after `home.css`
-- `images/galleryStyle/` - Course gallery photos listed in `manifest.json`, with small copies in `thumbs/`
+- `CoursesDesignPortfolio.html` - Redirects to `index.html#projects` (course photos moved to FSAE, research, and Autonomous Pookie pages)
 - `images/` - All portfolio images and icons
 - Additional project pages: `FSAE.html`, `parkingpal.html`, `autonomousRC.html`, etc.
 

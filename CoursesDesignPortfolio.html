@@ -3,135 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Course Design Work | Hung Nguyen</title>
-    <meta
-      name="description"
-      content="Photos of CAD, builds, and lab work from Hung Nguyen's mechanical engineering courses at LMU."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/home.css" />
-    <link rel="stylesheet" href="./css/project-page.css" />
+    <title>Projects | Hung Nguyen</title>
+    <meta http-equiv="refresh" content="0; url=./index.html#projects" />
+    <link rel="canonical" href="./index.html#projects" />
     <link rel="icon" type="image/png" href="./images/favicon.png" />
-    <link rel="apple-touch-icon" href="./images/favicon.png" />
   </head>
   <body>
-    <a class="skip-link" href="#content">Skip to content</a>
-
-    <header class="site-header">
-      <nav class="site-nav" aria-label="Main">
-        <a class="site-nav__name" href="./index.html">Hung Nguyen</a>
-        <ul class="site-nav__links">
-          <li><a href="./index.html#experience">Experience</a></li>
-          <li><a href="./index.html#projects">Projects</a></li>
-          <li><a href="./index.html#skills">Skills</a></li>
-          <li><a href="./index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main class="case-study" id="content">
-      <a class="back-link text-link" href="./index.html#projects"
-        >Back to all projects</a
-      >
-      <h1 class="case-study__title">Course Design Work</h1>
-      <p class="case-study__role">LMU mechanical engineering courses</p>
-
-      <section aria-labelledby="gallery-heading">
-        <div class="section-text">
-          <h2 class="title" id="gallery-heading">Photos</h2>
-          <p>
-            CAD, builds, and lab work from my design classes at LMU, plus a few
-            personal projects. Select a photo to see it full size.
-          </p>
-        </div>
-
-        <!-- Photos come from images/galleryStyle/manifest.json.
-             To add one: put the file in images/galleryStyle/ and add its name to that list.
-             Optional: a small copy with the same name (as .jpg) in images/galleryStyle/thumbs/ makes the grid load faster. -->
-        <div class="photo-gallery" id="photo-gallery">
-          <p class="photo-gallery__status">Loading photos.</p>
-        </div>
-      </section>
-
-      <div class="page-end-links">
-        <a class="text-link" href="./index.html#projects"
-          >Back to all projects</a
-        >
-        <a class="text-link" href="./index.html#contact">Contact me</a>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <p>© 2026 Hung Nguyen</p>
-    </footer>
-
-    <script>
-      const galleryFolder = "./images/galleryStyle/";
-      const imageFilePattern = /\.(jpe?g|png|gif|webp)$/i;
-
-      async function buildPhotoGallery() {
-        const galleryElement = document.getElementById("photo-gallery");
-
-        try {
-          const manifestResponse = await fetch(
-            galleryFolder + "manifest.json",
-            {
-              cache: "no-cache",
-            },
-          );
-          if (!manifestResponse.ok) throw new Error("manifest.json not found");
-
-          const photoFileNames = (await manifestResponse.json()).filter(
-            (fileName) => imageFilePattern.test(fileName),
-          );
-
-          if (!photoFileNames.length) {
-            galleryElement.innerHTML =
-              '<p class="photo-gallery__status">No photos listed yet.</p>';
-            return;
-          }
-
-          galleryElement.innerHTML = "";
-          photoFileNames.forEach((fileName, photoIndex) => {
-            const photoPath = galleryFolder + encodeURIComponent(fileName);
-
-            const photoLink = document.createElement("a");
-            photoLink.className = "photo-gallery__item";
-            photoLink.href = photoPath;
-            photoLink.target = "_blank";
-            photoLink.rel = "noopener";
-
-            // Show the small copy from thumbs/ in the grid; fall back to the full photo if none exists yet
-            const thumbnailFileName = fileName.replace(/\.[^.]+$/, ".jpg");
-            const thumbnailPath =
-              galleryFolder + "thumbs/" + encodeURIComponent(thumbnailFileName);
-
-            const photoImage = document.createElement("img");
-            photoImage.src = thumbnailPath;
-            photoImage.addEventListener(
-              "error",
-              () => {
-                photoImage.src = photoPath;
-              },
-              { once: true },
-            );
-            photoImage.alt = `Course design photo ${photoIndex + 1}`;
-            photoImage.loading = "lazy";
-
-            photoLink.appendChild(photoImage);
-            galleryElement.appendChild(photoLink);
-          });
-        } catch (loadError) {
-          galleryElement.innerHTML = `<p class="photo-gallery__status">Photos could not load (${loadError.message}).</p>`;
-        }
-      }
-
-      buildPhotoGallery();
-    </script>
+    <p>
+      This page moved. See all projects on the
+      <a href="./index.html#projects">home page</a>.
+    </p>
   </body>
 </html>
