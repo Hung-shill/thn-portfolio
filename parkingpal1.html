@@ -59,12 +59,12 @@
           <div class="image-grid">
             <img
               src="./images/ppProblem3.jpg"
-              alt="FEA stress result"
+              alt="Competitor example: an in-ground parking sensor that reports spot status over LoRa"
               class="section-pic-container"
             />
             <img
               src="./images/ppProblem4.jpg"
-              alt="Bracket simulation"
+              alt="Competitor example: a puck-style parking sensor paired with a phone app"
               class="section-pic-container"
             />
           </div>
@@ -87,22 +87,22 @@
           <div class="image-grid">
             <img
               src="./images/ppContribution3.JPG"
-              alt="FEA stress result"
+              alt="Second prototype on the bench: RF power sensor module and ESP32 board"
               class="section-pic-container"
             />
             <img
               src="./images/ppContribution4.JPG"
-              alt="Bracket simulation"
+              alt="Second prototype wired up for testing beside the ESP32-CAM"
               class="section-pic-container"
             />
             <img
               src="./images/ppContribution5.jpg"
-              alt="Optimized geometry"
+              alt="Workbench overview: ESP32-CAM on a protoboard, ESP32 board, and RF power sensor with antenna"
               class="section-pic-container"
             />
             <img
               src="./images/ppContribution6.JPG"
-              alt="Optimized geometry"
+              alt="Close-up of the RF power sensor module and ESP32-CAM held in clamps"
               class="section-pic-container"
             />
           </div>
@@ -113,16 +113,47 @@
       <section id="pp1_result">
         <div class="section-text">
           <h2 class="title">The Result</h2>
-          <p class="section-text-p1 loading">
-            Currently testing and gathering data
+          <p class="section-text-p1">
+            I built and field-tested the second prototype. The 2.4 GHz RF power
+            sensor did pick up parked cars, but the band is crowded: Wi-Fi,
+            Bluetooth, and phones nearby caused false readings. That is the
+            reason the camera check was there. The ESP32-CAM verification raised
+            detection F1 from 45% to 81% and cut false positives from 28% to 9%
+            in offline validation (details on the
+            <a class="text-link" href="./parkingpal2.html">camera version</a>
+            page).
+          </p>
+          <p class="section-text-p1">
+            Based on the field test, and on the track record of the market,
+            where many companies had already built custom parking sensors and
+            failed, the team decided to buy an existing machine-learning camera
+            that recognizes cars in parking spots instead of building its own
+            hardware. That concluded the second prototype.
           </p>
         </div>
       </section>
 
       <section id="pp1_reflection">
         <div class="section-text">
-          <h2 class="title">What I would do differently?</h2>
-          <p class="section-text-p1 loading">...</p>
+          <h2 class="title">What I would do differently</h2>
+          <p class="section-text-p1">
+            I would study why earlier parking sensor companies failed before
+            choosing a sensing approach. That history is what led the team to
+            buy a camera in the end, and it was available before we built
+            anything. Starting there would have pointed us to the right approach
+            sooner and saved time on custom hardware.
+          </p>
+          <p class="section-text-p1">
+            I would also compare options by cost per parking spot, not only by
+            detection accuracy. A sensor in every spot has to be bought,
+            installed, and maintained one at a time, while one camera can watch
+            a whole row. Looking at it that way early would have made the build
+            or buy decision clearer.
+          </p>
+          <p class="section-text-p1">
+            The field test still did its job: it gave the team real data to make
+            that decision.
+          </p>
         </div>
       </section>
 
