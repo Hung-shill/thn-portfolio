@@ -6,7 +6,7 @@
     <title>Walmart Internship | Hung Nguyen</title>
     <meta
       name="description"
-      content="Process engineering internship at Walmart: DMAIC root cause work, a staffing and capacity planning tool, and live KPI dashboards."
+      content="Walmart process engineering internship: a DMAIC study of shipping staffing and two live tools projected to recover $206K a year in lost labor."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -40,17 +40,42 @@
       >
       <h1 class="case-study__title">Walmart Inc.</h1>
       <p class="case-study__role">
-        Process Engineer Intern, Apple Valley, CA, Jun to Aug 2026
+        Process Engineer Intern, DC 7033, Apple Valley, CA, Jun to Aug 2026
       </p>
+
+      <!-- Key numbers. Impact figures are projected, not measured -->
+      <dl
+        class="spec-panel spec-panel--wide case-summary"
+        aria-label="Project at a glance"
+      >
+        <div class="spec-panel__cell">
+          <dt>Lost labor found</dt>
+          <dd>$206K/yr</dd>
+        </div>
+        <div class="spec-panel__cell">
+          <dt>Labor hours found</dt>
+          <dd>6,600/yr</dd>
+        </div>
+        <div class="spec-panel__cell">
+          <dt>Loader line, baseline</dt>
+          <dd>87.3%</dd>
+        </div>
+        <div class="spec-panel__cell">
+          <dt>Loader line, target</dt>
+          <dd>90%</dd>
+        </div>
+      </dl>
 
       <section id="walmart_problem">
         <div class="section-text">
           <h2 class="title">The Problem</h2>
           <p>
-            Outbound shipping at the distribution center was losing labor hours,
-            and start-of-shift staffing decisions relied on a projection feed
-            that was often wrong. Managers also spent hours each shift checking
-            status across separate systems.
+            Shipping is one of the largest areas in the distribution center.
+            Managers had all the data, but no tool to recalculate and
+            redistribute work in real time when something changed mid-shift,
+            like a loader leaving early or volume coming in lower than planned.
+            So they scheduled extra associates as a buffer, and on low-volume
+            days that buffer became direct, unnecessary labor cost.
           </p>
         </div>
         <article class="article-container">
@@ -76,68 +101,294 @@
           </div>
         </article>
       </section>
-      <section id="walmart_contribution">
+
+      <section id="walmart_measure">
         <div class="section-text">
-          <h2 class="title">What I did</h2>
+          <h2 class="title">Measuring the gap</h2>
+          <p>
+            I used three steady months of shipping data (July to September 2025)
+            as the baseline. The <b>loader line</b>, the share of the 525 cases
+            per hour target that loaders actually hit, ran at
+            <b>87.3%</b> against a <b>90%</b> target, and the
+            <b>red light rate</b> (cases stalled because a lane was full or
+            faulty) ran at <b>5.1%</b> against a target of 4% or less.
+          </p>
+          <p>
+            Loading the same volume at the target pace would take about
+            <b>550 fewer labor hours a month</b>, roughly
+            <b>6,600 hours and $206K a year</b>. Each extra 1% of loader line is
+            worth about $6.4K a month.
+          </p>
+        </div>
+        <figure class="loader-chart">
+          <figcaption class="loader-chart__title">
+            Loader line and the monthly labor savings it would unlock
+          </figcaption>
+          <!-- Bars use an 80 to 100% scale so the differences are visible -->
+          <div class="loader-chart__rows">
+            <div class="loader-chart__row">
+              <span class="loader-chart__label">Baseline</span>
+              <span class="loader-chart__track"
+                ><span
+                  class="loader-chart__bar loader-chart__bar--baseline"
+                  style="--bar-fill: 36.5%"
+                ></span
+              ></span>
+              <span class="loader-chart__value">87.3%</span>
+              <span class="loader-chart__savings">$0</span>
+            </div>
+            <div class="loader-chart__row">
+              <span class="loader-chart__label">Target</span>
+              <span class="loader-chart__track"
+                ><span class="loader-chart__bar" style="--bar-fill: 50%"></span
+              ></span>
+              <span class="loader-chart__value">90%</span>
+              <span class="loader-chart__savings">+$17.3K/mo</span>
+            </div>
+            <div class="loader-chart__row">
+              <span class="loader-chart__label">Stretch</span>
+              <span class="loader-chart__track"
+                ><span class="loader-chart__bar" style="--bar-fill: 75%"></span
+              ></span>
+              <span class="loader-chart__value">95%</span>
+              <span class="loader-chart__savings">+$46.6K/mo</span>
+            </div>
+          </div>
+          <p class="loader-chart__note">
+            Scale runs from 80% to 100%. Savings are projected from Jul to Sep
+            2025 data.
+          </p>
+        </figure>
+      </section>
+
+      <section id="walmart_root_causes">
+        <div class="section-text">
+          <h2 class="title">Root causes</h2>
+          <p>
+            A fishbone analysis with the shipping managers and ops leads on both
+            shifts traced the inefficient staffing to four groups of causes. Two
+            stood out: the live data existed in Ignition but was spread across 4
+            to 5 tabs, and there was no single metric that told managers how the
+            shift was going without doing the math by hand.
+          </p>
+        </div>
+        <div class="cause-grid">
+          <div class="cause-grid__group">
+            <h3>Method</h3>
+            <ul>
+              <li class="cause-grid__key">
+                No live system tied to the actual workflow
+              </li>
+              <li>Little documented staffing process</li>
+            </ul>
+          </div>
+          <div class="cause-grid__group">
+            <h3>Measure</h3>
+            <ul>
+              <li class="cause-grid__key">
+                No direct metric tied to staffing accuracy
+              </li>
+              <li>No calibration of the daily volume projection</li>
+            </ul>
+          </div>
+          <div class="cause-grid__group">
+            <h3>People</h3>
+            <ul>
+              <li>Staffing relied on judgment rather than system guidance</li>
+              <li>Little training on data-driven staffing</li>
+            </ul>
+          </div>
+          <div class="cause-grid__group">
+            <h3>Material</h3>
+            <ul>
+              <li>Seasonal and historical patterns not used</li>
+              <li>Store order and associate data underused</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="walmart_solution">
+        <div class="section-text">
+          <h2 class="title">What I built</h2>
+          <p>
+            Working with the shipping managers on both shifts for seven weeks, I
+            built a two-part solution in <b>BigQuery</b>, <b>SQL</b>,
+            <b>Python</b>, and <b>JavaScript</b>. Both tools pull from the same
+            data as Ignition every 90 seconds.
+          </p>
+        </div>
+
+        <div class="tool-block">
+          <h3 class="tool-block__title">1. Live Workload Reallocation tool</h3>
+          <p>
+            Managers enter the projected volume from each department, and the
+            tool returns exactly how many loaders the shift needs. When
+            something changes, like a loader taking PTO at 2:00 PM, the manager
+            updates it and the tool recalculates how to finish on time with the
+            crew that is left. A tracking widget shows the live pace against
+            target, and a lane chart ranks the busiest lanes in the last hour.
+          </p>
+          <figure class="work-figure">
+            <img
+              src="./images/walmart/loader-staffing-screen.jpg"
+              alt="Live Workload Reallocation tool: department volume inputs, required loaders, shift controls, pace tracking, and a lane pace chart"
+              class="work-figure__image"
+              loading="lazy"
+            />
+            <figcaption class="work-figure__caption">
+              The reallocation tool. Associate names are blurred.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="tool-block">
+          <h3 class="tool-block__title">2. Live Lane Leaderboard</h3>
+          <p>
+            A floor display that works as an early warning system. Any lane set
+            above 4% red light flips into a red banner, so a manager can go help
+            that loader right away. It also shows the busiest and least busy
+            lanes, cases per hour for every loader, and the throughput trend for
+            the shift.
+          </p>
+          <figure class="work-figure">
+            <img
+              src="./images/walmart/lane-leaderboard.jpg"
+              alt="Live Lane Leaderboard: red light banner, busiest and least busy lanes, shift totals, loader rankings, and a throughput trend chart"
+              class="work-figure__image"
+              loading="lazy"
+            />
+            <figcaption class="work-figure__caption">
+              The leaderboard for the floor TV. Associate names are blurred.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="walmart_before_after">
+        <div class="section-text">
+          <h2 class="title">Before and after</h2>
+        </div>
+        <div class="before-after">
+          <div class="before-after__column">
+            <h3>Before</h3>
+            <p>
+              Managers checked 4 to 5 separate places, then walked the lane to
+              see what was happening. To know the day's total, they subtracted
+              one tab's number from another every hour.
+            </p>
+            <blockquote class="pull-quote">
+              Before the tool, I had to create my own spreadsheet just to find
+              the numbers I needed.
+              <cite>Shipping manager</cite>
+            </blockquote>
+          </div>
+          <div class="before-after__column">
+            <h3>After</h3>
+            <p>
+              One screen for the office and one for the floor. The math is done
+              in the background, and problem lanes flag themselves.
+            </p>
+            <blockquote class="pull-quote">
+              I really like the live feedback loop we were able to have on this
+              tool. It really helps me navigate what to do.
+              <cite>Shipping manager</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="walmart_result">
+        <div class="section-text">
+          <h2 class="title">Projected impact</h2>
+          <p>
+            These are projections if the shipping team reaches the 90% loader
+            line target, based on the July to September 2025 baseline. The two
+            tools work together, so the savings are a combined target, not per
+            tool.
+          </p>
+        </div>
+        <div class="impact-table-wrap">
+          <table class="impact-table">
+            <thead>
+              <tr>
+                <th scope="col">Metric</th>
+                <th scope="col">Baseline</th>
+                <th scope="col">Projected</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Loader line</th>
+                <td>87.3%</td>
+                <td>90%</td>
+              </tr>
+              <tr>
+                <th scope="row">Cases per hour per loader</th>
+                <td>458.3</td>
+                <td>472.5</td>
+              </tr>
+              <tr>
+                <th scope="row">Red light rate</th>
+                <td>5.1%</td>
+                <td>4% or less</td>
+              </tr>
+              <tr>
+                <th scope="row">Extra labor hours a year</th>
+                <td>~6,600</td>
+                <td>0</td>
+              </tr>
+              <tr>
+                <th scope="row">Lost labor cost a year</th>
+                <td>~$206K</td>
+                <td>$0</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="section-text">
+          <p>
+            Across a 30-person loading crew, the target pace works out to about
+            <b>426 more cases per hour</b>. I also wrote a work instruction so
+            other engineers can roll the tools out to more buildings.
+          </p>
+        </div>
+      </section>
+
+      <section id="walmart_next_steps">
+        <div class="section-text">
+          <h2 class="title">Next steps I recommended</h2>
           <ul>
+            <li>Store the data the tools collect, ideally two years of it.</li>
             <li>
-              Diagnosed lost labor in outbound shipping using
-              <b>Six Sigma DMAIC</b> and a fishbone diagram, and presented the
-              findings to cross-functional plant leadership.
+              Use it to build a forecasting model that predicts each
+              department's volume.
             </li>
             <li>
-              Built an automated staffing and capacity planning tool for
-              outbound shipping using <b>BigQuery</b>, <b>SQL</b>,
-              <b>Python</b>, and <b>JavaScript</b>.
+              Move from suggestions to fully automated loader reallocation.
             </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="walmart_other_work">
+        <div class="section-text">
+          <h2 class="title">Also during the internship</h2>
+          <ul>
             <li>
               Traced start-of-shift labor allocation errors to a data-integrity
               failure in the outbound projection feed, and scoped a forecasting
               model on historical inbound freight to stabilize that input.
             </li>
             <li>
-              Automated administrative steps in the WRQ Host Tool for the
-              Quality Assurance department using Python and JavaScript.
+              Automated steps in the WRQ Host Tool for the Quality Assurance
+              department in Python and JavaScript: 150+ profiles a day, saving 1
+              to 2 hours per shift, 4 days a week.
             </li>
             <li>
-              Built live KPI dashboards that merge 5 to 6
-              <b>Ignition SCADA</b> and BigQuery sources into one view.
-            </li>
-          </ul>
-        </div>
-        <figure class="work-figure">
-          <img
-            src="./images/walmart/loader-staffing-tool.jpg"
-            alt="The Loader Staffing tool I built: projected versus actual cases, a shift planner that calculates required loaders, shift controls, and a lane pace chart"
-            class="work-figure__image"
-            loading="lazy"
-          />
-          <figcaption class="work-figure__caption">
-            The Loader Staffing tool I built, running on the shipping office
-            screen. The Shift Planner turns projected cases and target cases per
-            hour into the number of loaders needed to finish on time. Associate
-            names and internal addresses are blurred.
-          </figcaption>
-        </figure>
-      </section>
-      <section id="walmart_result">
-        <div class="section-text">
-          <h2 class="title">The Result</h2>
-          <ul>
-            <li>
-              Found 550 lost labor hours a month, about <b>$206,632 a year</b>.
-            </li>
-            <li>
-              Staffing tool projects <b>426 more cases per hour</b> across a
-              30-person headcount.
-            </li>
-            <li>
-              QA automation processes 150+ profiles a day and saves 1 to 2 hours
-              of manual work per shift, 4 days a week.
-            </li>
-            <li>
-              Dashboards save operations managers <b>3 to 5 hours</b> of manual
-              status checks per shift.
+              Built live KPI dashboards that merge 5 to 6 <b>Ignition SCADA</b>
+              and BigQuery sources into one view, saving managers 3 to 5 hours
+              of status checks per shift.
             </li>
           </ul>
         </div>

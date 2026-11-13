@@ -305,3 +305,201 @@
   object-fit: cover;
   background: none;
 }
+
+/* ---------- Walmart case study ---------- */
+
+.case-summary {
+  max-width: 40rem;
+}
+
+.case-summary dd {
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+}
+
+.loader-chart {
+  margin: 1.75rem 0 0;
+  max-width: 44rem;
+}
+
+.loader-chart__title {
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+}
+
+.loader-chart__rows {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.loader-chart__row {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr) 3.5rem 6.5rem;
+  align-items: center;
+  gap: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.loader-chart__label {
+  color: var(--color-muted);
+  font-size: var(--font-size-small);
+}
+
+.loader-chart__track {
+  height: 1.4rem;
+  background: var(--color-wash);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.loader-chart__bar {
+  display: block;
+  height: 100%;
+  width: var(--bar-fill);
+  background: var(--color-navy);
+}
+
+.loader-chart__bar--baseline {
+  background: var(--color-track);
+}
+
+.loader-chart__value {
+  font-weight: 600;
+}
+
+.loader-chart__savings {
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.loader-chart__note {
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.cause-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  max-width: 52rem;
+}
+
+.cause-grid__group {
+  padding: 1rem 1.1rem;
+  background: var(--color-wash);
+  border-radius: var(--corner-radius);
+}
+
+.cause-grid__group h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.cause-grid__group ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+/* The two causes the tools target */
+.cause-grid__key {
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.tool-block {
+  margin-top: 2.25rem;
+}
+
+.tool-block__title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.tool-block > p {
+  max-width: 68ch;
+}
+
+.before-after {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.before-after__column h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.pull-quote {
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-navy);
+  font-style: italic;
+}
+
+.pull-quote cite {
+  display: block;
+  margin-top: 0.35rem;
+  font-style: normal;
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+}
+
+.impact-table-wrap {
+  overflow-x: auto;
+  margin: 1.25rem 0;
+  max-width: 40rem;
+}
+
+.impact-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.impact-table th,
+.impact-table td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.impact-table thead th {
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+  font-weight: 500;
+  border-bottom: 2px solid var(--color-ink);
+}
+
+.impact-table tbody th {
+  font-weight: 500;
+}
+
+.impact-table td:last-child {
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+@media (max-width: 640px) {
+  .cause-grid,
+  .before-after {
+    grid-template-columns: 1fr;
+  }
+
+  .loader-chart__row {
+    grid-template-columns: 4rem minmax(0, 1fr) 3rem;
+  }
+
+  .loader-chart__savings {
+    grid-column: 2 / -1;
+    font-size: var(--font-size-small);
+    margin-top: -0.3rem;
+  }
+}
