@@ -58,5 +58,5 @@ When editing:
 - these files are my personal mechanical engineering portfolio
 - always ask for clarification
 - always use descriptive variable names
-- keep the <link rel="icon" type="image/jpeg" href=" ">
+- keep the <link rel="icon" type="image/png" href="./images/favicon.png" /> (HN monogram) on every page
 - always point to code snippet when explaining something

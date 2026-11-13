@@ -16,7 +16,8 @@
     />
     <link rel="stylesheet" href="./css/home.css" />
     <link rel="stylesheet" href="./css/project-page.css" />
-    <link rel="icon" type="image/jpeg" href=" " />
+    <link rel="icon" type="image/png" href="./images/favicon.png" />
+    <link rel="apple-touch-icon" href="./images/favicon.png" />
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
@@ -47,12 +48,10 @@
         <div class="section-text">
           <h2 class="title">The Problem</h2>
           <p class="section-text-p1">
-            The magnetometer already has its place on the market for this type
-            of IoT sensor (pics of a few of our competitors) And it seems like
-            it is not yielding the expected results based on the fact that there
-            are many competitors out there, but their products were not really
-            well-known. Hence, I needed to come up with something different and
-            applicable.
+            Magnetometer-based parking sensors are already on the market (a few
+            competitors are shown below), but none of them has become well
+            known, which suggested the approach was not working well enough. I
+            needed a sensing method that was different and practical.
           </p>
         </div>
         <article class="article-container">
@@ -76,11 +75,11 @@
         <div class="section-text">
           <h2 class="title">Implementation</h2>
           <p class="section-text-p1">
-            After careful consideration, I had decided to implement a power
-            sensor targetting 2.4GHz frequency from the infotainment in modern
-            cars as I do not see how this trend of having big screen in cars die
-            out. I also added a trained ESP32-CAM with computer vision to verify
-            whether the car is present visually or is it just bad signal.
+            I chose an <b>RF power sensor</b> tuned to <b>2.4 GHz</b>, the band
+            used by the infotainment systems in modern cars, since large in-car
+            screens are here to stay. I added an <b>ESP32-CAM</b> running a
+            trained vision model to confirm visually whether a car is really
+            there or the reading is just a stray signal.
           </p>
         </div>
         <article class="article-container">

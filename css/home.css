@@ -523,26 +523,24 @@ main {
 
 .skills__groups {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem 2rem;
 }
 
 .skill-group__title {
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
 }
 
-.skill-group__list {
-  list-style: none;
-  padding: 0;
-  display: grid;
-  gap: 0.35rem;
+.skill-group__items {
+  line-height: 1.55;
 }
 
-.skill-level {
-  display: block;
-  font-size: 0.8rem;
+/* One proof link per group, not one per skill */
+.skill-group__proof {
+  margin-top: 0.4rem;
+  font-size: var(--font-size-small);
   color: var(--color-muted);
 }
 
@@ -592,10 +590,6 @@ main {
     max-width: 18rem;
     aspect-ratio: 1 / 1;
   }
-
-  .skills__groups {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (max-width: 560px) {
@@ -609,11 +603,6 @@ main {
 
   .site-nav__links li:nth-child(3) {
     display: none;
-  }
-
-  .skill-level {
-    display: inline;
-    margin-left: 0.35rem;
   }
 
   .project-facts {
@@ -651,10 +640,6 @@ main {
   .skills__groups {
     grid-template-columns: 1fr;
     gap: 1.25rem;
-  }
-
-  .skill-group__list {
-    gap: 0.15rem;
   }
 }
 
