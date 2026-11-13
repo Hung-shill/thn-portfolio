@@ -279,3 +279,29 @@
   color: var(--color-muted);
   max-width: 68ch;
 }
+
+/* A single proof-of-work image shown large, with a caption */
+.work-figure {
+  margin: 1.5rem 0 0;
+}
+
+.work-figure__image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--corner-radius);
+  border: 1px solid var(--color-line);
+}
+
+.work-figure__caption {
+  margin-top: 0.6rem;
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+  max-width: 68ch;
+}
+
+/* Photos of places (not CAD or diagrams): fill the frame, tall crop */
+.case-study .image-grid--scene > img {
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  background: none;
+}
