@@ -185,6 +185,12 @@
   aspect-ratio: 8 / 5;
   background: #0d141c;
   border-radius: var(--corner-radius);
+  cursor: grab;
+  touch-action: pan-y; /* sideways drags rotate the view; vertical swipes still scroll the page */
+}
+
+.lidar-sim__canvas:active {
+  cursor: grabbing;
 }
 
 .lidar-sim__badge {

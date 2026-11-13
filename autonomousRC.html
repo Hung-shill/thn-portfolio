@@ -125,7 +125,7 @@
             <canvas
               class="lidar-sim__canvas"
               role="img"
-              aria-label="Simulation: a car drives through a model room while its spinning LiDAR maps walls and furniture as dots colored by distance"
+              aria-label="3D simulation: a car drives through a model room while its spinning 16-beam LiDAR maps the floor, walls, and furniture as a point cloud colored by distance. Drag to rotate the view."
             ></canvas>
             <span class="lidar-sim__badge">Simulation</span>
           </div>
@@ -164,10 +164,11 @@
             </div>
           </div>
           <figcaption class="lidar-sim__caption">
-            How the car builds a map as it drives: each LiDAR ray that hits a
-            wall or piece of furniture leaves a dot. This is a model room (8 m
-            by 5 m) for illustration, not recorded data. The real scans are
-            shown above.
+            How the car builds a 3D map as it drives: a 16-beam LiDAR spins on a
+            mast 30 cm up, and every ray that hits the floor, a wall, or a piece
+            of furniture leaves a point. Drag to rotate the view. This is a
+            model room (8 m by 5 m by 2.5 m) for illustration, not recorded
+            data. The real scans are shown above.
           </figcaption>
         </figure>
       </section>
